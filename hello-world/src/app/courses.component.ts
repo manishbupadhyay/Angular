@@ -5,16 +5,28 @@ import { Component } from '@angular/core';
     selector: 'courses',
     template: `
   
-    <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
+    {{courses.title | uppercase}} <br/>
+    {{courses.rating | number:'2.1-1'}} <br/>
+    {{courses.students | number}} <br/>
+    {{courses.price | currency:'INR':true:'3.2-2'}} <br/>
+    {{courses.releaseDate | date:'full'}} <br/>
     `
 })
 
 export class CoursesComponent {
-    email = "ayan@example.com";
-    
-    onKeyUp(){
-        console.log(this.email);
+    // Pipes
+    courses = {
+        title : "The complete Angular 4 course",
+        rating: 4.987,
+        students: 35548,
+        price: 190.95,
+        releaseDate : new Date(2018,8,25)
     }
+    // email = "ayan@example.com";
+    
+    // onKeyUp(){
+    //     console.log(this.email);
+    // }
     // onDivClicked(){
     //     console.log("Div clicked");
     // }
